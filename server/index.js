@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import productRoutes from "./routes/products.js";
 
 //init express application
 const app = express();
@@ -14,6 +15,8 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => {
   res.send("hello from homepage");
 });
+
+app.use("/products", productRoutes);
 
 //listen for incoming request
 app.listen(PORT, () =>

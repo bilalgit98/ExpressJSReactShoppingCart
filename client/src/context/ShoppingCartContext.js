@@ -16,7 +16,8 @@ const ShoppingCartProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const res = await fetch("https://fakestoreapi.com/products?limit=5");
+      const res = await fetch("/products");
+      console.log(res);
       const json = await res.json();
       despatch({ type: "SET_PRODUCTS", payload: json });
     };
